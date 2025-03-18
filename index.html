@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir App</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Intenta abrir la app con el esquema de URL
+        window.location.href = "gagework://resetPassword";
+
+        // Si la app no se abre, redirige al usuario a una página de fallback o muestra un mensaje
+        setTimeout(function() {
+            alert("No se pudo abrir la app. Asegúrate de tenerla instalada.");
+            // Aquí podrías redirigir a la App Store o Google Play si es necesario
+            // window.location.href = "https://play.google.com/store/apps/details?id=com.gagework"; // Para Android
+            // window.location.href = "https://apps.apple.com/us/app/gagework/idXXXXXX"; // Para iOS
+        }, 2000); // Espera 2 segundos antes de ejecutar el fallback
+    </script>
+</body>
+</html>
