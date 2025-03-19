@@ -17,16 +17,23 @@
 </head>
 <body>
     <script>
-        // Intenta abrir la app con el esquema de URL
-        window.location.href = "gagework://resetPassword";
+        // Función para obtener el valor de un parámetro de la URL
+        function getUrlParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
 
-        // Si la app no se abre, redirige al usuario a una página de fallback o muestra un mensaje
-        setTimeout(function() {
-            alert("No se pudo abrir la app. Asegúrate de tenerla instalada.");
-            // Aquí podrías redirigir a la App Store o Google Play si es necesario
-            // window.location.href = "https://play.google.com/store/apps/details?id=com.gagework"; // Para Android
-            // window.location.href = "https://apps.apple.com/us/app/gagework/idXXXXXX"; // Para iOS
-        }, 2000); // Espera 2 segundos antes de ejecutar el fallback
+        // Obtener el parámetro 'token' de la URL
+        const token = getUrlParam('token');
+
+        if (token) {
+            // Si el parámetro token existe, abre la app con ese token
+            window.location.href = `gagework://resetPassword?token=${token}`;
+        } else {
+            // Si no se encuentra el token, muestra un mensaje o maneja el error
+            alert("Token was not provided");
+        }
+
     </script>
 </body>
 </html>
