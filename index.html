@@ -28,7 +28,7 @@
 
         if (token) {
             // Si el parámetro token existe, abre la app con ese token
-            window.location.href = `gagework://resetPassword?token=${token}`;
+            window.location.href = `gagework://gageapp/reset-password?token=${token}`;
         } else {
             // Si no se encuentra el token, muestra un mensaje o maneja el error
             alert("Token was not provided");
